@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app import crud, models, schemas
 from app.models.recommendation import Resource, ResourceType
 from app.core.config import settings
-from app.db import base_class as base   # noqa: F401
+from app.db import base_class as base  # noqa: F401
 
 def init_db(db: Session) -> None:
     # Create tables
