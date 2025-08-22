@@ -35,7 +35,11 @@ class Document(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     
     # Relationships
-    owner = relationship("User", foreign_keys=[user_id], back_populates="documents")
+    owner = relationship(
+        "User",
+        foreign_keys=[user_id],
+        back_populates="documents",
+    )
     verifier = relationship("User", foreign_keys=[verified_by])
     
     def get_absolute_url(self, request):

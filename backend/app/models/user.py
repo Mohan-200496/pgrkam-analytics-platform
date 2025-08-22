@@ -32,7 +32,11 @@ class User(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     
     # Relationships
-    documents = relationship("Document", back_populates="owner")
+    documents = relationship(
+        "Document",
+        back_populates="owner",
+        foreign_keys="Document.user_id",
+    )
     educational_details = relationship("EducationalDetail", back_populates="user", uselist=False)
     user_activities = relationship("UserActivity", back_populates="user")
     recommendations = relationship("UserRecommendation", back_populates="user")
