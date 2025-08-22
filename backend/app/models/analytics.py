@@ -29,7 +29,7 @@ class UserActivity(Base):
     ip_address = Column(String(45), nullable=True)  # IPv6 can be up to 45 chars
     user_agent = Column(Text, nullable=True)
     referrer = Column(Text, nullable=True)
-    metadata = Column(JSON, nullable=True)  # Additional JSON data
+    additional_data = Column(JSON, nullable=True)  # Additional JSON data (renamed from reserved 'metadata')
     
     # Timestamps
     created_at = Column(DateTime(timezone=True), server_default=func.now())
